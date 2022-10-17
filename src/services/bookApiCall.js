@@ -18,6 +18,22 @@ const getBooksWithDetails = async () => {
   return booksWithDetails;
 };
 
+/**
+ *
+ * @returns the rated book
+ */
+ const patchBookRating = async (book_rating) => {
+    return await db.book_rating.create({
+        rating: book_rating.rating,
+        book: {
+            id: book_rating.bookId
+        },
+        user: {
+            id: book_rating.userId
+        }
+    })
+  };
+
 module.exports = {
-  getBooksWithDetails,
+  getBooksWithDetails, patchBookRating
 };
