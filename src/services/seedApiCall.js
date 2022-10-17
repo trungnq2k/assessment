@@ -71,10 +71,6 @@ const callSeedApi = async () => {
     const bookDetails = await callBookDetailSeedApi(books);
     const authors = await callAuthorSeedApi();
 
-    console.log(books);
-    console.log(bookDetails);
-    console.log(authors);
-
     await db.book.bulkCreate(books);
     await db.book_detail.bulkCreate(bookDetails);
     await db.author.bulkCreate(authors);
