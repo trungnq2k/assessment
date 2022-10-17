@@ -6,6 +6,5 @@ const router = Router()
 
 router.get('/', logger, getBooks)
 
-// router.post('/facts', logger, insertFacts)
 
 module.exports = { bookRouter:router }
