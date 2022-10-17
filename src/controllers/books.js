@@ -1,4 +1,8 @@
-const { getBooksWithDetails, patchBookRating } = require("../services/bookApiCall");
+const {
+  getBooksWithDetails,
+  patchBookRating,
+  getAverageBookRating
+} = require("../services/bookApiCall");
 
 const getBooks = (_req, res) => {
   void (async () => {
@@ -7,12 +11,19 @@ const getBooks = (_req, res) => {
 };
 
 const patchRatings = (req, res) => {
-    void (async () => {
-      res.json(await patchBookRating(req.body));
-    })();
-  };
-  
+  void (async () => {
+    res.json(await patchBookRating(req.body));
+  })();
+};
+
+const getRatings = (req, res) => {
+  void (async () => {
+    res.json(await getAverageBookRating(req.params.id));
+  })();
+};
 
 module.exports = {
-    getBooks, patchRatings
+  getBooks,
+  patchRatings,
+  getRatings
 };
