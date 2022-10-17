@@ -11,6 +11,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      book_rating.hasOne(models.book, {
+        foreignKey: "id"
+      })
+      book_rating.hasOne(models.user, {
+        foreignKey: "id"
+      })
     }
   }
   book_rating.init({
